@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "file-comparison-tool"
+version = "1.0.0"
+description = "A GUI application for comparing Excel and CSV files with various operations"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "File Comparison Tool Team", email = "support@filecomparisontool.com"}
+]
+maintainers = [
+    {name = "File Comparison Tool Team", email = "support@filecomparisontool.com"}
+]
+keywords = ["excel", "csv", "file", "comparison", "data", "processing", "gui"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Office/Business :: Financial :: Spreadsheet",
+    "Topic :: Utilities",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Environment :: X11 Applications",
+    "Environment :: Win32 (MS Windows)",
+    "Environment :: MacOS X",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "pandas>=1.5.0",
+    "openpyxl>=3.0.0",
+    "xlrd>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "psutil>=5.9.0",
+    "memory-profiler>=0.60.0",
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+build = [
+    "pyinstaller>=5.0.0",
+    "auto-py-to-exe>=2.20.0",
+]
+
+[project.scripts]
+file-comparison-tool = "main:main"
+fct = "main:main"
+
+[project.gui-scripts]
+file-comparison-tool-gui = "main:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/file-comparison-tool"
+Repository = "https://github.com/yourusername/file-comparison-tool"
+Documentation = "https://github.com/yourusername/file-comparison-tool/wiki"
+"Bug Reports" = "https://github.com/yourusername/file-comparison-tool/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["*.md", "*.txt", "*.yml", "*.yaml"]
+"docs" = ["*.md", "*.html"]
+"test_data" = ["*.csv", "*.xlsx"]
